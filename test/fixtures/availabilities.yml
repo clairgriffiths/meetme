@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  available: 
+  maybe: 
+  unavailable: false
+
+two:
+  available: 
+  maybe: 
+  unavailable: false
