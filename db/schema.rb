@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171125132820) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "availabilities", force: :cascade do |t|
     t.boolean  "available"
     t.boolean  "maybe"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20171125132820) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "day_id"
-    t.index ["day_id"], name: "index_availabilities_on_day_id"
-    t.index ["user_id"], name: "index_availabilities_on_user_id"
+    t.index ["day_id"], name: "index_availabilities_on_day_id", using: :btree
+    t.index ["user_id"], name: "index_availabilities_on_user_id", using: :btree
   end
 
   create_table "calendar_days", force: :cascade do |t|
@@ -29,8 +32,8 @@ ActiveRecord::Schema.define(version: 20171125132820) do
     t.datetime "updated_at",  null: false
     t.integer  "calendar_id"
     t.integer  "day_id"
-    t.index ["calendar_id"], name: "index_calendar_days_on_calendar_id"
-    t.index ["day_id"], name: "index_calendar_days_on_day_id"
+    t.index ["calendar_id"], name: "index_calendar_days_on_calendar_id", using: :btree
+    t.index ["day_id"], name: "index_calendar_days_on_day_id", using: :btree
   end
 
   create_table "calendars", force: :cascade do |t|
@@ -59,4 +62,8 @@ ActiveRecord::Schema.define(version: 20171125132820) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "availabilities", "days"
+  add_foreign_key "availabilities", "users"
+  add_foreign_key "calendar_days", "calendars"
+  add_foreign_key "calendar_days", "days"
 end
