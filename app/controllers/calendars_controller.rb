@@ -2,6 +2,7 @@ class CalendarsController < ApplicationController
   
   def new
     @calendar = Calendar.new
+    # clean up
     @calendar.days.build
   end
   
@@ -17,7 +18,7 @@ class CalendarsController < ApplicationController
   private
   
   def calendar_params
-    params.require(:calendar).permit(:start_date, :end_date, days_attributes: [:date, :day, :month, :year])
+    params.require(:calendar).permit(:start_date, :end_date, :mondays, :tuesdays, :wednesdays, :thursdays, :fridays, :saturdays, :sundays)
   end
 end
 
