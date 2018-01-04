@@ -2,6 +2,7 @@ class CalendarsController < ApplicationController
   
   def new
     @calendar = Calendar.new
+    @calendar.days.build
   end
   
   def create

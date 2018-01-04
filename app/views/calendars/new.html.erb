@@ -1,1 +1,15 @@
-<h1>Create your calendar</h1>
+<div class="container">
+ <h1>Create your calendar</h1>
+ 
+  <%= simple_form_for(@calendar, html: { class: 'form-horizontal' }) do |c| %>
+    <%= c.input :start_date %>
+    <%= c.input :end_date %>
+    <%= c.simple_fields_for :days do |d| %>
+      <%= d.input :day %>
+    <% end %>
+  <%= c.button :submit %>
+  <% end %>
+  
+</div>
+ 
+     
