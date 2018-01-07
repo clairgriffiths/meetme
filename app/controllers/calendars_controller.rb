@@ -9,7 +9,8 @@ class CalendarsController < ApplicationController
   def create
     @calendar = Calendar.new(calendar_params)
     if @calendar.save
-      redirect_to calendars_path
+      @calendar.create_calendar_days
+      redirect_to calendar_path(@calendar)
     else
       render :new
     end
@@ -18,7 +19,7 @@ class CalendarsController < ApplicationController
   private
   
   def calendar_params
-    params.require(:calendar).permit(:start_date, :end_date, :mondays, :tuesdays, :wednesdays, :thursdays, :fridays, :saturdays, :sundays)
+    params.require(:calendar).permit(:start_date, :end_date, :mondays, days_of_week: [])
   end
 end
 

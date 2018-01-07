@@ -4,17 +4,15 @@
   <%= simple_form_for(@calendar, html: { class: 'form-horizontal' }) do |c| %>
     <%= c.input :start_date %>
     <%= c.input :end_date %>
-    <%= c.input :mondays %>
-    <%= c.input :tuesdays %>
-    <%= c.input :wednesdays %>
-    <%= c.input :thursdays %>
-    <%= c.input :fridays %>
-    <%= c.input :saturdays %>
-    <%= c.input :sundays %>
+    <%= c.input :days_of_week, 
+            as: :check_boxes, 
+            collection: [['Mondays', 1], ['Tuesdays', 2],['Wednesdays', 3], ['Thursdays', 4], ['Fridays', 5], ['Saturdays', 6], ['Sundays', 7]],
+            wrapper:    :vertical_radio_and_checkboxes %>
   
   <%= c.button :submit %>
   <% end %>
   
 </div>
+
  
      
