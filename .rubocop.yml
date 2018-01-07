@@ -13,3 +13,9 @@ Metrics/LineLength:
 
 Documentation:
   Enabled: false
+
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
