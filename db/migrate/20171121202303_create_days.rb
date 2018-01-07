@@ -1,6 +1,6 @@
 class CreateDays < ActiveRecord::Migration
   def change
-    create_table :day do |t|
+    create_table :days do |t|
       t.datetime :date
       t.string :day
       t.string :month

@@ -6,7 +6,7 @@ class Calendar < ActiveRecord::Base
   
   
   def create_calendar_days
-    result = (self.start_date..self.end_date).to_a.select {|k| @days_of_week.include?(k.wday)}
+   # result = (self.start_date..self.end_date).to_a.select {|k| @days_of_week.include?(k.wday)}
     # iterate through and create day!
   end
   
