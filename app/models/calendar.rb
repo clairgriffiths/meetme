@@ -6,8 +6,21 @@ class Calendar < ApplicationRecord
 
   serialize :days_of_weeks, Array
 
-  def create_calendar_days
+  validates_presence_of :start_date, :end_date
 
+  def add_days
+    days = calculate_dates
+    days.each do |d|
+      binding.pry
+      self.days << Day.find_by(date: d)
+    end
+
+  end
+
+  private
+
+  def calculate_dates
+   (self.start_date..self.end_date).to_a.select {|k| self.days_of_week.include?(k.wday.to_s)}
   end
 
 end
