@@ -1,0 +1,15 @@
+AllCops:
+  TargetRubyVersion: 2.3.4
+  TargetRailsVersion: 5
+  DisplayStyleGuide: false
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/**/*'
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
+
+Documentation:
+  Enabled: false
