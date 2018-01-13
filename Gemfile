@@ -19,6 +19,8 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', require: false
+  gem 'factory_bot_rails'
+  gem 'rspec-activemodel-mocks'
 end
 
 group :development do

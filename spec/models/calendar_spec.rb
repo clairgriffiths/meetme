@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Calendar, :type => :model do
+  before(:each) do
+    @calendar = create(:calendar)
+  end
   it "validates presence of start_date" do
     expect(Calendar.new(start_date: nil)).to_not be_valid
   end
@@ -16,19 +19,19 @@ RSpec.describe Calendar, :type => :model do
     expect(Calendar.new(days_of_week: [])).to_not be_valid
   end
 
-  describe ".add_days" do
-    start_date = Date.today
-    end_date = Date.today + 14
-    mondays = ["1"]
+   describe ".add_days" do
 
-    # Need to stub Day class
-    let(:calendar) {Calendar.new(start_date: start_date,
-                                 end_date: end_date,
-                                 days_of_week: mondays)}
+
+    # Stupid error:
+    # ActiveRecord::AssociationTypeMismatch: Day(#20870920) expected, got NilClass(#8216580)
+
     context "when Mondays is selected over a 2 week period" do
       it "creates 2 calendar days" do
-        calendar.add_days
-        expect(calendar.days.length).to eq(2)
+        monday = create(:day)
+        day = mock_model(Day)
+        allow(Day).to receive(:find_by) {day}
+        @calendar.add_days
+        expect(@calendar.days.length).to eq(2)
       end
     end
   end

@@ -11,7 +11,6 @@ class Calendar < ApplicationRecord
   def add_days
     days = calculate_dates
     days.each do |d|
-      binding.pry
       self.days << Day.find_by(date: d)
     end
 
