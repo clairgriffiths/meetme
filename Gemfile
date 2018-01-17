@@ -16,7 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'
-  gem 'pry'
+  gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', require: false
   gem 'factory_bot_rails'
