@@ -1,18 +1,37 @@
-<div class="container">
- <h1>Create your calendar</h1>
- 
-  <%= simple_form_for(@calendar, html: { class: 'form-horizontal' }) do |c| %>
-    <%= c.input :start_date %>
-    <%= c.input :end_date %>
-    <%= c.input :days_of_week, 
-            as: :check_boxes, 
-            collection: [['Mondays', 1], ['Tuesdays', 2],['Wednesdays', 3], ['Thursdays', 4], ['Fridays', 5], ['Saturdays', 6], ['Sundays', 7]],
-            wrapper:    :vertical_radio_and_checkboxes %>
-  
-  <%= c.button :submit %>
-  <% end %>
-  
+<div class="site-wrapper">
+ <div class="site-wrapper-inner">
+   <div class="container">
+
+      <div class="masthead clearfix">
+        <div class="container inner">
+           <h3 class="masthead-brand">Meetme</h3>
+        </div>
+      </div>
+
+      <div class="inner-cover">
+       <h1>Create your calendar</h1>
+
+        <%= simple_form_for(@calendar,wrapper: :vertical_form,
+        wrapper_mappings: {
+          check_boxes: :horizontal_radio_and_checkboxes,
+          radio_buttons: :horizontal_radio_and_checkboxes,
+          file: :horizontal_file_input,
+          boolean: :horizontal_boolean
+        }) do |c| %>
+        <div class="form-inputs">
+          <%= c.input :start_date %>
+          <%= c.input :end_date %>
+          <%= c.input :days_of_week,
+                  collection: [['Mondays', 1], ['Tuesdays', 2],['Wednesdays', 3], ['Thursdays', 4], ['Fridays', 5], ['Saturdays', 6], ['Sundays', 7]],
+                  item_label_class: 'btn btn-primary' %>
+
+          <%= c.button :submit %>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
 </div>
 
- 
-     
+
