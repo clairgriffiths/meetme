@@ -1,3 +1,23 @@
-<h1>Show page</h1>
-
-<%= @calendar.inspect %>
+<div class="container">
+  <h1>My calendar</h1>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <% @calendar.days.each do |day| %>
+      <th><%= day.day_name %> <%= day.day %> <%= day.month %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Name</th>
+      <td>Available?</td>
+      <td>Available?</td>
+      <td>Available?</td>
+      <td>Available?</td>
+      <td>Available?</td>
+    </tr>
+  </tbody>
+</table>
+</div>
