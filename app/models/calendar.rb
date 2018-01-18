@@ -19,7 +19,7 @@ class Calendar < ApplicationRecord
   private
 
   def calculate_dates
-   (self.start_date..self.end_date).to_a.select {|k| self.days_of_week.include?(k.wday.to_s)}
+   (self.start_date..self.end_date).to_a.select {|date| self.days_of_week.include?(date.wday.to_s)}
   end
 
 end

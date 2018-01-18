@@ -22,18 +22,22 @@ namespace :days do
     end
 
 
-    first = (Day.last.date + 1.day).to_datetime
+    first = (Day.last.date + 1.day).to_date
     last = first + 4.weeks
     (first..last).to_a.each do |d|
 
      Day.create(date: d,
-              year: d.year.to_s,
-              month: d.month.to_s,
-              day: d.day.to_s,
+              year: d.strftime('%Y'),
+              month: d.strftime('%b'),
+              day: d.strftime('%d'),
+              day_name: d.strftime('%a'),
               weekend: d.weekend?,
               weekday: d.weekday?
               )
     end
+
+    # Error handling
+    # Print success message
 
   end
 end
