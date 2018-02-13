@@ -41,3 +41,5 @@ namespace :days do
 
   end
 end
+
+# rake days:create_days
